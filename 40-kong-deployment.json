@@ -1,0 +1,105 @@
+{
+  "kind" : "Deployment",
+  "apiVersion" : "extensions/v1beta1",
+  "metadata" : {
+    "name" : "kong",
+    "labels" : {
+      "app" : "kong"
+    }
+  },
+  "spec" : {
+    "replicas" : 1,
+    "revisionHistoryLimit" : 3,
+    "selector" : {
+      "matchLabels" : {
+        "app" : "kong"
+      }
+    },
+    "template" : {
+      "metadata" : {
+        "labels" : {
+          "app" : "kong"
+        },
+        "annotations" : {
+          "atomist.config" : "{secret/atomist/awsk8cluster/* read secret/keys/jwt/githuboauthredirect/* read secret/keys/jwt/buttonweb/* read}",
+          "atomist.updater" : "{sforzando-docker-dockerv2-local.artifactoryonline.com/kongk8s-convergence atomisthq/kongk8s-convergence sforzando-docker-dockerv2-local.artifactoryonline.com/kong-postgres atomisthq/kongk8s sforzando-docker-dockerv2-local.artifactoryonline.com/path-kong atomisthq/kongk8s sforzando-docker-dockerv2-local.artifactoryonline.com/host-kong atomisthq/kongk8s sforzando-docker-dockerv2-local.artifactoryonline.com/https-redirector atomisthq/kongk8s}"
+        }
+      },
+      "spec" : {
+        "containers" : [ {
+          "name" : "postgres",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/kong-postgres:1.0.8-20160809103250",
+          "livenessProbe" : {
+            "exec" : {
+              "command" : [ "/usr/lib/postgresql/9.4/bin/psql", "--username", "postgres", "-l", "-P", "pager=off" ]
+            },
+            "initialDelaySeconds" : 10
+          }
+        }, {
+          "name" : "dnsmasq",
+          "image" : "janeczku/go-dnsmasq:release-1.0.5",
+          "args" : [ "--listen", "127.0.0.1:53", "--default-resolver", "--append-search-domains", "--hostsfile=/etc/hosts" ],
+          "livenessProbe" : {
+            "exec" : {
+              "command" : [ "/usr/bin/nslookup", "kong", "localhost:8053" ]
+            },
+            "initialDelaySeconds" : 10
+          }
+        }, {
+          "name" : "path-kong",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/path-kong:1.0.8-20160809103250",
+          "livenessProbe" : {
+            "httpGet" : {
+              "path" : "/status",
+              "port" : 4001
+            },
+            "initialDelaySeconds" : 10
+          }
+        }, {
+          "name" : "host-kong",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/host-kong:1.0.8-20160809103250",
+          "ports" : [ {
+            "name" : "api-gateway",
+            "containerPort" : 8000,
+            "protocol" : "TCP"
+          } ],
+          "livenessProbe" : {
+            "httpGet" : {
+              "path" : "/status",
+              "port" : 8001
+            },
+            "initialDelaySeconds" : 10
+          }
+        }, {
+          "name" : "kongk8s-convergence",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/kongk8s-convergence:0.5.1-20161121104043",
+          "livenessProbe" : {
+            "httpGet" : {
+              "path" : "/status",
+              "port" : 8181
+            },
+            "initialDelaySeconds" : 30
+          }
+        }, {
+          "name" : "https-redirector",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/https-redirector:1.0.8-20160809103250",
+          "ports" : [ {
+            "name" : "https-redirect",
+            "containerPort" : 80,
+            "protocol" : "TCP"
+          } ]
+        } ],
+        "imagePullSecrets" : [ {
+          "name" : "atomistregistrykey"
+        } ]
+      }
+    },
+    "strategy" : {
+      "type" : "RollingUpdate",
+      "rollingUpdate" : {
+        "maxUnavailable" : 0,
+        "maxSurge" : 1
+      }
+    }
+  }
+}

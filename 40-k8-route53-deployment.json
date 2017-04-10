@@ -1,0 +1,49 @@
+{
+  "kind" : "Deployment",
+  "apiVersion" : "extensions/v1beta1",
+  "metadata" : {
+    "name" : "k8-route53",
+    "labels" : {
+      "app" : "k8-route53"
+    }
+  },
+  "spec" : {
+    "replicas" : 1,
+    "revisionHistoryLimit" : 3,
+    "selector" : {
+      "matchLabels" : {
+        "app" : "k8-route53"
+      }
+    },
+    "template" : {
+      "metadata" : {
+        "labels" : {
+          "app" : "k8-route53"
+        },
+        "annotations" : {
+          "atomist.config" : "{aws/creds/route53 read secret/atomist/awsk8cluster/* read secret/atomist/awscluster/* read secret/k8-route53 read}",
+          "atomist.updater" : "{sforzando-docker-dockerv2-local.artifactoryonline.com/k8-route53 atomisthq/k8-route53}"
+        }
+      },
+      "spec" : {
+        "containers" : [ {
+          "name" : "k8-route53",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/k8-route53:0.5.5-20161121103734",
+          "imagePullPolicy" : "IfNotPresent"
+        } ],
+        "restartPolicy" : "Always",
+        "dnsPolicy" : "ClusterFirst",
+        "imagePullSecrets" : [ {
+          "name" : "atomistregistrykey"
+        } ]
+      }
+    },
+    "strategy" : {
+      "type" : "RollingUpdate",
+      "rollingUpdate" : {
+        "maxUnavailable" : 0,
+        "maxSurge" : 1
+      }
+    }
+  }
+}

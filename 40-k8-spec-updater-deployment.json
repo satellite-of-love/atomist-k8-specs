@@ -1,0 +1,52 @@
+{
+  "kind" : "Deployment",
+  "apiVersion" : "extensions/v1beta1",
+  "metadata" : {
+    "name" : "k8-spec-updater",
+    "labels" : {
+      "app" : "k8-spec-updater"
+    }
+  },
+  "spec" : {
+    "replicas" : 1,
+    "revisionHistoryLimit" : 3,
+    "selector" : {
+      "matchLabels" : {
+        "app" : "k8-spec-updater"
+      }
+    },
+    "template" : {
+      "metadata" : {
+        "labels" : {
+          "app" : "k8-spec-updater"
+        },
+        "annotations" : {
+          "atomist.config" : "{secret/convergence-agent read}",
+          "atomist.updater" : "{sforzando-docker-dockerv2-local.artifactoryonline.com/k8-spec-updater atomisthq/k8-spec-updater}"
+        }
+      },
+      "spec" : {
+        "containers" : [ {
+          "name" : "k8-spec-updater",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/k8-spec-updater:0.3.0-20170124174123",
+          "resources" : { },
+          "terminationMessagePath" : "/dev/termination-log",
+          "imagePullPolicy" : "IfNotPresent"
+        } ],
+        "restartPolicy" : "Always",
+        "terminationGracePeriodSeconds" : 30,
+        "dnsPolicy" : "ClusterFirst",
+        "imagePullSecrets" : [ {
+          "name" : "atomistregistrykey"
+        } ]
+      }
+    },
+    "strategy" : {
+      "type" : "RollingUpdate",
+      "rollingUpdate" : {
+        "maxUnavailable" : 0,
+        "maxSurge" : 1
+      }
+    }
+  }
+}
