@@ -7,7 +7,7 @@
       "app": "kong"
     },
     "annotations" : {
-      "service.beta.kubernetes.io/aws-load-balancer-ssl-cert": "arn:aws:acm:us-east-1:111664719423:certificate/bc909beb-9bcc-46de-a009-03ec6357e121",
+      "service.beta.kubernetes.io/aws-load-balancer-ssl-cert": "arn:aws:acm:us-east-1:111664719423:certificate/336719ce-0de4-49ea-9ddf-1636bf1d85cf",
       "service.beta.kubernetes.io/aws-load-balancer-backend-protocol": "http",
       "service.beta.kubernetes.io/aws-load-balancer-ssl-ports" : "https"
     }
