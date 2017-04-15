@@ -11,16 +11,6 @@ import { Editor, Parameter, Tags } from '@atomist/rug/operations/Decorators';
 @Tags("documentation")
 export class ChangeMemoryRequirements implements EditProject {
 
-    @Parameter({
-        displayName: "Some Input",
-        description: "example of how to specify a parameter using decorators",
-        pattern: Pattern.any,
-        validInput: "a description of the valid input",
-        minLength: 1,
-        maxLength: 100
-    })
-    inputParameter: string;
-
     edit(project: Project) {
         let pxe = project.context.pathExpressionEngine;
 
@@ -36,12 +26,12 @@ export class ChangeMemoryRequirements implements EditProject {
                     if (currentMemoryLimit == "768Mi") {
                         spec.spec.template.spec.containers[0].resources.requests.memory = "128Mi";
                     }
+                    f.setContent(JSON.stringify(spec, null, 2))
                 } catch (e) {
                     console.log("looks like we got the structure wrong: " + e);
                 }
             }
         })
-        project.addFile("hello.txt", "Hello, World!\n" + this.inputParameter + "\n");
     }
 }
 
