@@ -26,7 +26,7 @@
       "spec" : {
         "containers" : [ {
           "name" : "berlin",
-          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/berlin:1.0.0-20170415155418",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/berlin:1.0.0-20170415203646",
           "imagePullPolicy" : "Always",
           "resources" : {
             "limits" : {
