@@ -14,3 +14,20 @@ editor:
     - "service": "berlin"
     - "path": "wood"
 
+---
+kind: "operation"
+client: "rug-cli 0.30.2"
+editor:
+  name: "AddLocalEditor"
+  group: "atomist-rugs"
+  artifact: "rug-editors"
+  version: "0.25.0"
+  origin:
+    repo: "git@github.com:atomist-rugs/rug-editors.git"
+    branch: "master"
+    sha: "7557a1b"
+  parameters:
+    - "editorName": "ChangeMemoryRequirements"
+    - "description": "modify the memory level in deployments"
+    - "groupId": "satellite-of-love"
+
