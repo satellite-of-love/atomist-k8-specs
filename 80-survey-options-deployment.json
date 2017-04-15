@@ -26,7 +26,7 @@
       "spec" : {
         "containers" : [ {
           "name" : "survey-options",
-          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/survey-options:0.1.0-20170411183627",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/survey-options:0.1.0-20170415194941",
           "imagePullPolicy" : "Always",
           "resources" : {
             "limits" : {
