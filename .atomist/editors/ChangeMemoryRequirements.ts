@@ -26,7 +26,7 @@ export class ChangeMemoryRequirements implements EditProject {
                     if (currentMemoryLimit == "768Mi") {
                         spec.spec.template.spec.containers[0].resources.requests.memory = "128Mi";
                     }
-                    f.setContent(JSON.stringify(spec, null, 2).replace(/":/, `" :`))
+                    f.setContent(JSON.stringify(spec, null, 2).replace(/":/g, `" :`))
                 } catch (e) {
                     console.log("looks like we got the structure wrong: " + e);
                 }
