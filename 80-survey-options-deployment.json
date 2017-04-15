@@ -31,11 +31,11 @@
           "resources" : {
             "limits" : {
               "cpu" : 0.5,
-              "memory" : "1024Mi"
+              "memory" : "256Mi"
             },
             "requests" : {
               "cpu" : 0.1,
-              "memory" : "768Mi"
+              "memory" : "128Mi"
             }
           },
           "env" : [ {
