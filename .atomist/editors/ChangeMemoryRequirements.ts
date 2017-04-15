@@ -17,8 +17,8 @@ export class ChangeMemoryRequirements implements EditProject {
         pxe.with<File>(project, "/File()", f => {
             if (f.name.match(/^80.*deployment.json$/)) {
                 let newContent = f.content.replace(
-                    /"memory" : "768Mi"/, `"memory" : "128Mi"`).replace(
-                    /"memory" : "1024Mi"/, `"memory" : "256Mi"`)
+                    /"memory" : "256Mi"/, `"memory" : "512Mi"`).replace(
+                    /"memory" : "128Mi"/, `"memory" : "256Mi"`)
                 f.setContent(newContent)
             }
         })
