@@ -16,20 +16,10 @@ export class ChangeMemoryRequirements implements EditProject {
 
         pxe.with<File>(project, "/File()", f => {
             if (f.name.match(/^80.*deployment.json$/)) {
-                let spec = JSON.parse(f.content);
-                try {
-                    let currentMemoryLimit = spec.spec.template.spec.containers[0].resources.limits.memory;
-                    if (currentMemoryLimit == "1024Mi") {
-                        spec.spec.template.spec.containers[0].resources.limits.memory = "256Mi";
-                    }
-                    let currentMemoryRequest = spec.spec.template.spec.containers[0].resources.requests.memory;
-                    if (currentMemoryLimit == "768Mi") {
-                        spec.spec.template.spec.containers[0].resources.requests.memory = "128Mi";
-                    }
-                    f.setContent(JSON.stringify(spec, null, 2).replace(/":/g, `" :`))
-                } catch (e) {
-                    console.log("looks like we got the structure wrong: " + e);
-                }
+                let newContent = f.content.replace(
+                    /"memory" : "768Mi"/, `"memory" : "128Mi"`).replace(
+                    /"memory" : "1024Mi"/, `"memory" : "256Mi"`)
+                f.setContent(newContent)
             }
         })
     }
