@@ -1,0 +1,28 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "london",
+	"annotations": {
+	  "atomist.dnsmode" : "vanity",
+          "atomist.elb-service-name" : "kong",
+          "atomist.upstream_url" : "http://london:8080",
+          "atomist.vanity-name" : "survey.atomist.com",
+          "atomist.request_path": "/london"
+	}
+    },
+    "spec": {
+        "selector": {
+            "app": "london"
+        },
+        "ports": [
+            {
+                "name": "london",
+                "protocol": "TCP",
+                "port": 8080,
+                "targetPort": 8080
+            }
+        ]
+    }
+}
+ 
