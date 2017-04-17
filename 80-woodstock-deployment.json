@@ -26,7 +26,7 @@
       "spec" : {
         "containers" : [ {
           "name" : "woodstock",
-          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/woodstock:0.1.0-SNAPSHOT",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/woodstock:1.0.0-20170417192858",
           "imagePullPolicy" : "Always",
           "resources" : {
             "limits" : {
