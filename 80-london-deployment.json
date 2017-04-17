@@ -38,23 +38,9 @@
               "memory" : "256Mi"
             }
           },
-          "env" : [ {
-            "name" : "PORT",
-            "value" : "8080"
-          }, {
-            "name" : "DOMAIN",
-            "valueFrom" : {
-              "secretKeyRef" : {
-                "name" : "atomist-domain",
-                "key" : "name"
-              }
-            }
-          }, {
-            "name" : "APP_NAME",
-            "value" : "london"
-          } ],
+          "env" : [],
           "ports" : [ {
-            "containerPort" : 8080
+            "containerPort" : 8091
           } ]
         } ],
         "imagePullSecrets" : [ {
