@@ -5,7 +5,7 @@ import { Pattern } from '@atomist/rug/operations/RugOperation';
 import { Editor, Parameter, Tags } from '@atomist/rug/operations/Decorators';
 
 /**
- * Sample TypeScript editor used by AddChangeMemoryRequirements.
+ * Increase memory requests across the board
  */
 @Editor("ChangeMemoryRequirements", "modify the memory level in deployments")
 @Tags("documentation")
