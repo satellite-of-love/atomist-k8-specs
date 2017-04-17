@@ -1,0 +1,28 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "woodstock",
+	"annotations": {
+	  "atomist.dnsmode" : "vanity",
+          "atomist.elb-service-name" : "kong",
+          "atomist.upstream_url" : "http://woodstock:8080",
+          "atomist.vanity-name" : "survey.atomist.com",
+          "atomist.request_path": "/woodstock"
+	}
+    },
+    "spec": {
+        "selector": {
+            "app": "woodstock"
+        },
+        "ports": [
+            {
+                "name": "woodstock",
+                "protocol": "TCP",
+                "port": 8080,
+                "targetPort": 8080
+            }
+        ]
+    }
+}
+ 
