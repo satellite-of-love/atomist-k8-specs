@@ -1,0 +1,28 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "henley-on-thames",
+	"annotations": {
+	  "atomist.dnsmode" : "vanity",
+          "atomist.elb-service-name" : "kong",
+          "atomist.upstream_url" : "http://henley-on-thames:8080",
+          "atomist.vanity-name" : "survey.atomist.com",
+          "atomist.request_path": "/henley-on-thames"
+	}
+    },
+    "spec": {
+        "selector": {
+            "app": "henley-on-thames"
+        },
+        "ports": [
+            {
+                "name": "henley-on-thames",
+                "protocol": "TCP",
+                "port": 8080,
+                "targetPort": 8080
+            }
+        ]
+    }
+}
+ 
