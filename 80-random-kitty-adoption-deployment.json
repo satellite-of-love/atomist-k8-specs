@@ -26,7 +26,7 @@
       "spec" : {
         "containers" : [ {
           "name" : "random-kitty-adoption",
-          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/random-kitty-adoption:0.1.0-SNAPSHOT",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/random-kitty-adoption:1.0.0-20170418143700",
           "imagePullPolicy" : "Always",
           "resources" : {
             "limits" : {
