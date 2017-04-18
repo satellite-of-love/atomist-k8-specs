@@ -26,7 +26,7 @@
       "spec" : {
         "containers" : [ {
           "name" : "henley-on-thames",
-          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/henley-on-thames:0.1.0-SNAPSHOT",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/henley-on-thames:1.0.0-20170418030159",
           "imagePullPolicy" : "Always",
           "resources" : {
             "limits" : {
