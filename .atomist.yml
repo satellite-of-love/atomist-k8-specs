@@ -89,3 +89,19 @@ editor:
     - "service": "henley-on-thames"
     - "path": "henley-on-thames"
 
+---
+kind: "operation"
+client: "atomist-bot"
+editor:
+  name: "AddDeploymentSpec"
+  group: "satellite-of-love"
+  artifact: "new-project-rugs"
+  version: "0.1.22"
+  origin:
+    repo: "git@github.com:satellite-of-love/new-project-rugs"
+    branch: "master"
+    sha: "29e6449"
+  parameters:
+    - "service": "random-kitty-adoption"
+    - "path": "philly"
+
