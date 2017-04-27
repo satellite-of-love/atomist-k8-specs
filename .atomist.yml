@@ -134,3 +134,19 @@ editor:
     - "service": "panda-panda"
     - "path": "kittiesplease"
 
+---
+kind: "operation"
+client: "atomist-bot"
+editor:
+  name: "AddDeploymentSpec"
+  group: "satellite-of-love"
+  artifact: "rest-service-generator"
+  version: "0.12.9"
+  origin:
+    repo: "git@github.com:satellite-of-love/rest-service-generator"
+    branch: "master"
+    sha: "e09b9e2"
+  parameters:
+    - "service": "summon-internet-kitties"
+    - "path": "auckland"
+
