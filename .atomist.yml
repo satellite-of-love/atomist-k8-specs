@@ -118,3 +118,19 @@ editor:
     branch: "master"
     sha: "5620b67*"
 
+---
+kind: "operation"
+client: "atomist-bot"
+editor:
+  name: "AddDeploymentSpec"
+  group: "satellite-of-love"
+  artifact: "rest-service-generator"
+  version: "0.12.6"
+  origin:
+    repo: "git@github.com:satellite-of-love/rest-service-generator"
+    branch: "master"
+    sha: "c6cb6ad"
+  parameters:
+    - "service": "panda-panda"
+    - "path": "kittiesplease"
+
