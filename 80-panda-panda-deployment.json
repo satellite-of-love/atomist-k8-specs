@@ -26,7 +26,7 @@
       "spec" : {
         "containers" : [ {
           "name" : "panda-panda",
-          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/panda-panda:0.1.0-SNAPSHOT",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/panda-panda:1.0.0-20170427050553",
           "imagePullPolicy" : "Always",
           "resources" : {
             "limits" : {
@@ -38,7 +38,7 @@
               "memory" : "256Mi"
             }
           },
-          "env" : [],
+          "env" : [ ],
           "ports" : [ {
             "containerPort" : 8080
           } ]
