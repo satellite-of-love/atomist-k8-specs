@@ -44,3 +44,29 @@ editor:
     branch: "master"
     sha: "c23ed53"
 
+---
+kind: "operation"
+client: "atomist-bot"
+editor:
+  name: "AddRestEndpoint"
+  group: "satellite-of-love"
+  artifact: "rest-service-generator"
+  version: "0.12.5"
+  origin:
+    repo: "git@github.com:satellite-of-love/rest-service-generator"
+    branch: "master"
+    sha: "89b8555"
+  parameters:
+    - "returnedClass": "Survey"
+    - "fieldName": "seed"
+    - "fieldType": "Int"
+    - "repo": "atomist-k8-specs"
+    - "handle": "{}"
+    - "__mappedParameters": "{"0":{"localKey":"repo","foreignKey":"atomist://github/repository"}}"
+    - "__parameters": "{"0":{"displayName":"Java return type","description":"type the endpoint will return","pattern":"@java_class","validInput":"Java class name like ThunderCougarFalconBird","minLength":1,"maxLength":100,"name":"returnedClass","decorated":true},"1":{"displayName":"pojo field name","description":"name of a field in your pojo, blank for none (or not a new pojo)","pattern":"@java_identifier","validInput":"Java identifier","minLength":1,"maxLength":100,"name":"fieldName","decorated":true},"2":{"displayName":"pojo field type","description":"type of that field in your pojo, blank for none (or not a new pojo)","pattern":"@any","validInput":"Java type","minLength":1,"maxLength":100,"name":"fieldType","decorated":true}}"
+    - "__intent": "{"0":"add endpoint"}"
+    - "__tags": "{"0":"satellite-of-love","1":"rest"}"
+    - "__name": "AddRestEndpointPlease"
+    - "__description": "run an editor to add a REST endpoint to this project"
+    - "__kind": "command-handler"
+
