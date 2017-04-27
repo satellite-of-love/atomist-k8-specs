@@ -26,7 +26,7 @@
       "spec" : {
         "containers" : [ {
           "name" : "panda-panda",
-          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/panda-panda:1.0.0-20170427050553",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/panda-panda:1.0.0-20170427185117",
           "imagePullPolicy" : "Always",
           "resources" : {
             "limits" : {
