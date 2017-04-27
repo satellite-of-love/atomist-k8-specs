@@ -1,0 +1,73 @@
+{
+  "apiVersion" : "extensions/v1beta1",
+  "kind" : "Deployment",
+  "metadata" : {
+    "name" : "workflow-rugs"
+  },
+  "spec" : {
+    "replicas" : 1,
+    "revisionHistoryLimit" : 3,
+    "selector" : {
+      "matchLabels" : {
+        "app" : "workflow-rugs"
+      }
+    },
+    "template" : {
+      "metadata" : {
+        "name" : "workflow-rugs",
+        "labels" : {
+          "app" : "workflow-rugs"
+        },
+        "annotations" : {
+          "atomist.config" : "{}",
+          "atomist.updater" : "{sforzando-docker-dockerv2-local.artifactoryonline.com/workflow-rugs satellite-of-love/workflow-rugs}"
+        }
+      },
+      "spec" : {
+        "containers" : [ {
+          "name" : "workflow-rugs",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/workflow-rugs:0.1.0-SNAPSHOT",
+          "imagePullPolicy" : "Always",
+          "resources" : {
+            "limits" : {
+              "cpu" : 0.5,
+              "memory" : "1024Mi"
+            },
+            "requests" : {
+              "cpu" : 0.1,
+              "memory" : "768Mi"
+            }
+          },
+          "env" : [ {
+            "name" : "PORT",
+            "value" : "8080"
+          }, {
+            "name" : "DOMAIN",
+            "valueFrom" : {
+              "secretKeyRef" : {
+                "name" : "atomist-domain",
+                "key" : "name"
+              }
+            }
+          }, {
+            "name" : "APP_NAME",
+            "value" : "workflow-rugs"
+          } ],
+          "ports" : [ {
+            "containerPort" : 8080
+          } ]
+        } ],
+        "imagePullSecrets" : [ {
+          "name" : "atomistregistrykey"
+        } ]
+      }
+    },
+    "strategy" : {
+      "type" : "RollingUpdate",
+      "rollingUpdate" : {
+        "maxUnavailable" : 0,
+        "maxSurge" : 1
+      }
+    }
+  }
+}

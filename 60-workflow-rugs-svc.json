@@ -1,0 +1,28 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "workflow-rugs",
+	"annotations": {
+	  "atomist.dnsmode" : "vanity",
+          "atomist.elb-service-name" : "kong",
+          "atomist.upstream_url" : "http://workflow-rugs:8080",
+          "atomist.vanity-name" : "survey.atomist.com",
+          "atomist.request_path": "/tomorrow"
+	}
+    },
+    "spec": {
+        "selector": {
+            "app": "workflow-rugs"
+        },
+        "ports": [
+            {
+                "name": "workflow-rugs",
+                "protocol": "TCP",
+                "port": 8080,
+                "targetPort": 8080
+            }
+        ]
+    }
+}
+ 
