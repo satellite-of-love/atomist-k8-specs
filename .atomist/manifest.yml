@@ -1,4 +1,4 @@
 group: "satellite-of-love"
 artifact: "atomist-k8-specs"
-version: "0.2.0"
-requires: "[0.26.1,1.0.0)"
+version: "1.0.0"
+requires: "[1.0.0-m.2,2.0.0)"
