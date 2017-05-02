@@ -150,3 +150,19 @@ editor:
     - "service": "summon-internet-kitties"
     - "path": "auckland"
 
+---
+kind: "operation"
+client: "atomist-bot"
+editor:
+  name: "AddDeploymentSpec"
+  group: "satellite-of-love"
+  artifact: "rest-service-generator"
+  version: "1.1.1"
+  origin:
+    repo: "git@github.com:satellite-of-love/rest-service-generator"
+    branch: "master"
+    sha: "c56af85"
+  parameters:
+    - "service": "james-kitties"
+    - "path": "auckland"
+
