@@ -26,7 +26,7 @@
       "spec" : {
         "containers" : [ {
           "name" : "james-kitties",
-          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/james-kitties:1.0.0-20170502085248",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/james-kitties:1.0.0-20170502090354",
           "imagePullPolicy" : "Always",
           "resources" : {
             "limits" : {
