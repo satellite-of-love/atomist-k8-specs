@@ -1,0 +1,13 @@
+---
+kind: "operation"
+client: "rug-cli 1.0.0-m.1"
+editor:
+  name: "AddLocalEditor"
+  group: "atomist"
+  artifact: "rug-rugs"
+  version: "0.30.0-20170427011430"
+  parameters:
+    - "editorName": "RemoveService"
+    - "description": "take a service out of deployment"
+    - "groupId": "what"
+
