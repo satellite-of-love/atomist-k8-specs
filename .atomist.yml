@@ -11,3 +11,18 @@ editor:
     - "description": "take a service out of deployment"
     - "groupId": "what"
 
+---
+kind: "operation"
+client: "rug-cli 1.0.0-m.1"
+editor:
+  name: "RetireService"
+  group: "satellite-of-love"
+  artifact: "atomist-k8-specs"
+  version: "1.0.0"
+  origin:
+    repo: "git@github.com:satellite-of-love/atomist-k8-specs"
+    branch: "satellite-of-love"
+    sha: "f8438dd"
+  parameters:
+    - "serviceName": "amsterdam"
+
