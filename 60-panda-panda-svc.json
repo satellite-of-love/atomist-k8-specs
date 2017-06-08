@@ -1,0 +1,28 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "panda-panda",
+	"annotations": {
+	  "atomist.dnsmode" : "vanity",
+          "atomist.elb-service-name" : "kong",
+          "atomist.upstream_url" : "http://panda-panda:8080",
+          "atomist.vanity-name" : "survey.atomist.com",
+          "atomist.request_path": "/panda"
+	}
+    },
+    "spec": {
+        "selector": {
+            "app": "panda-panda"
+        },
+        "ports": [
+            {
+                "name": "panda-panda",
+                "protocol": "TCP",
+                "port": 8080,
+                "targetPort": 8080
+            }
+        ]
+    }
+}
+ 
