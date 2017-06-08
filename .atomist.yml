@@ -57,3 +57,16 @@ editor:
     - "service": "toes"
     - "path": "toes"
 
+---
+kind: "operation"
+client: "com.atomist:rug"
+version: "1.0.0-20170602144934"
+editor:
+  name: "AddDeploymentSpec"
+  group: "satellite-of-love"
+  artifact: "rest-service-generator"
+  version: "1.11.0"
+  parameters:
+    - "service": "panda-panda"
+    - "path": "panda"
+
