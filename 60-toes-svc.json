@@ -1,0 +1,28 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "toes",
+	"annotations": {
+	  "atomist.dnsmode" : "vanity",
+          "atomist.elb-service-name" : "kong",
+          "atomist.upstream_url" : "http://toes:8080",
+          "atomist.vanity-name" : "survey.atomist.com",
+          "atomist.request_path": "/toes"
+	}
+    },
+    "spec": {
+        "selector": {
+            "app": "toes"
+        },
+        "ports": [
+            {
+                "name": "toes",
+                "protocol": "TCP",
+                "port": 8080,
+                "targetPort": 8080
+            }
+        ]
+    }
+}
+ 
