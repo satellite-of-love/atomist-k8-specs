@@ -1,0 +1,28 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "lizardspit",
+	"annotations": {
+	  "atomist.dnsmode" : "vanity",
+          "atomist.elb-service-name" : "kong",
+          "atomist.upstream_url" : "http://lizardspit:8080",
+          "atomist.vanity-name" : "survey.atomist.com",
+          "atomist.request_path": "/lizardspit"
+	}
+    },
+    "spec": {
+        "selector": {
+            "app": "lizardspit"
+        },
+        "ports": [
+            {
+                "name": "lizardspit",
+                "protocol": "TCP",
+                "port": 8080,
+                "targetPort": 8080
+            }
+        ]
+    }
+}
+ 

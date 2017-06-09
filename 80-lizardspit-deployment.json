@@ -1,0 +1,59 @@
+{
+  "apiVersion" : "extensions/v1beta1",
+  "kind" : "Deployment",
+  "metadata" : {
+    "name" : "lizardspit"
+  },
+  "spec" : {
+    "replicas" : 1,
+    "revisionHistoryLimit" : 3,
+    "selector" : {
+      "matchLabels" : {
+        "app" : "lizardspit"
+      }
+    },
+    "template" : {
+      "metadata" : {
+        "name" : "lizardspit",
+        "labels" : {
+          "app" : "lizardspit"
+        },
+        "annotations" : {
+          "atomist.config" : "{}",
+          "atomist.updater" : "{sforzando-docker-dockerv2-local.artifactoryonline.com/lizardspit satellite-of-love/lizardspit}"
+        }
+      },
+      "spec" : {
+        "containers" : [ {
+          "name" : "lizardspit",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/lizardspit:0.1.0-SNAPSHOT",
+          "imagePullPolicy" : "Always",
+          "resources" : {
+            "limits" : {
+              "cpu" : 0.5,
+              "memory" : "512Mi"
+            },
+            "requests" : {
+              "cpu" : 0.1,
+              "memory" : "256Mi"
+            }
+          },
+          "env" : [],
+          "ports" : [ {
+            "containerPort" : 8080
+          } ]
+        } ],
+        "imagePullSecrets" : [ {
+          "name" : "atomistregistrykey"
+        } ]
+      }
+    },
+    "strategy" : {
+      "type" : "RollingUpdate",
+      "rollingUpdate" : {
+        "maxUnavailable" : 0,
+        "maxSurge" : 1
+      }
+    }
+  }
+}
