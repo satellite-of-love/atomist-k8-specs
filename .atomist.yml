@@ -26,3 +26,16 @@ editor:
   parameters:
     - "serviceName": "amsterdam"
 
+---
+kind: "operation"
+client: "com.atomist:rug"
+version: "1.0.0-20170608065255"
+editor:
+  name: "AddDeploymentSpec"
+  group: "satellite-of-love"
+  artifact: "rest-service-generator"
+  version: "1.12.0"
+  parameters:
+    - "service": "lizardspit"
+    - "path": "lizardspit"
+
