@@ -26,7 +26,7 @@
       "spec" : {
         "containers" : [ {
           "name" : "london",
-          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/london:1.0.0-20170613010837",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/london:1.0.0-20170613223313",
           "imagePullPolicy" : "Always",
           "resources" : {
             "limits" : {
