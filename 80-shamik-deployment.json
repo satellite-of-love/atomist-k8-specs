@@ -26,7 +26,7 @@
       "spec" : {
         "containers" : [ {
           "name" : "shamik",
-          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/shamik:1.0.0-20170613013022",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/shamik:1.0.0-20170613014429",
           "imagePullPolicy" : "Always",
           "resources" : {
             "limits" : {
