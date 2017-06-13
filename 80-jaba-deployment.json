@@ -26,7 +26,7 @@
       "spec" : {
         "containers" : [ {
           "name" : "jaba",
-          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/jaba:1.0.0-20170613190146",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/jaba:1.0.0-20170613192550",
           "imagePullPolicy" : "Always",
           "resources" : {
             "limits" : {
