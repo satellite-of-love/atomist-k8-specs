@@ -26,7 +26,7 @@
       "spec" : {
         "containers" : [ {
           "name" : "carrpt",
-          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/carrpt:1.0.0-20170613211939",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/carrpt:1.0.0-20170613215212",
           "imagePullPolicy" : "Always",
           "resources" : {
             "limits" : {
