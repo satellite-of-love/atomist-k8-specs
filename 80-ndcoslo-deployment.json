@@ -1,0 +1,59 @@
+{
+  "apiVersion" : "extensions/v1beta1",
+  "kind" : "Deployment",
+  "metadata" : {
+    "name" : "ndcoslo"
+  },
+  "spec" : {
+    "replicas" : 1,
+    "revisionHistoryLimit" : 3,
+    "selector" : {
+      "matchLabels" : {
+        "app" : "ndcoslo"
+      }
+    },
+    "template" : {
+      "metadata" : {
+        "name" : "ndcoslo",
+        "labels" : {
+          "app" : "ndcoslo"
+        },
+        "annotations" : {
+          "atomist.config" : "{}",
+          "atomist.updater" : "{sforzando-docker-dockerv2-local.artifactoryonline.com/ndcoslo satellite-of-love/ndcoslo}"
+        }
+      },
+      "spec" : {
+        "containers" : [ {
+          "name" : "ndcoslo",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/ndcoslo:0.1.0-SNAPSHOT",
+          "imagePullPolicy" : "Always",
+          "resources" : {
+            "limits" : {
+              "cpu" : 0.5,
+              "memory" : "512Mi"
+            },
+            "requests" : {
+              "cpu" : 0.1,
+              "memory" : "256Mi"
+            }
+          },
+          "env" : [],
+          "ports" : [ {
+            "containerPort" : 8080
+          } ]
+        } ],
+        "imagePullSecrets" : [ {
+          "name" : "atomistregistrykey"
+        } ]
+      }
+    },
+    "strategy" : {
+      "type" : "RollingUpdate",
+      "rollingUpdate" : {
+        "maxUnavailable" : 0,
+        "maxSurge" : 1
+      }
+    }
+  }
+}
