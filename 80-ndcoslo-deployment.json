@@ -26,7 +26,7 @@
       "spec" : {
         "containers" : [ {
           "name" : "ndcoslo",
-          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/ndcoslo:1.0.0-20170615132618",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/ndcoslo:1.0.0-20170615134223",
           "imagePullPolicy" : "Always",
           "resources" : {
             "limits" : {
