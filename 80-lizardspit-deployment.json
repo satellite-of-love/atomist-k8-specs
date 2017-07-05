@@ -26,7 +26,7 @@
       "spec" : {
         "containers" : [ {
           "name" : "lizardspit",
-          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/lizardspit:1.0.0-20170705161715",
+          "image" : "sforzando-docker-dockerv2-local.artifactoryonline.com/lizardspit:1.0.0-20170705190901",
           "imagePullPolicy" : "Always",
           "resources" : {
             "limits" : {
